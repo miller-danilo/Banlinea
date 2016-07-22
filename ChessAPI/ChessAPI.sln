@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessAPI", "ChessAPI\ChessAPI.csproj", "{18082E49-7D02-4301-941F-634551E5565D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{A836A955-C336-4992-9D94-5C7690024ECC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessWeb", "ChessWeb\ChessWeb.csproj", "{7E7C32E4-64D9-4584-9CB3-E2B147DD21E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{022C9C68-CE3E-4F70-847B-E28764A743AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18082E49-7D02-4301-941F-634551E5565D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18082E49-7D02-4301-941F-634551E5565D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18082E49-7D02-4301-941F-634551E5565D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18082E49-7D02-4301-941F-634551E5565D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A836A955-C336-4992-9D94-5C7690024ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A836A955-C336-4992-9D94-5C7690024ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A836A955-C336-4992-9D94-5C7690024ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A836A955-C336-4992-9D94-5C7690024ECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E7C32E4-64D9-4584-9CB3-E2B147DD21E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E7C32E4-64D9-4584-9CB3-E2B147DD21E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E7C32E4-64D9-4584-9CB3-E2B147DD21E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E7C32E4-64D9-4584-9CB3-E2B147DD21E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{022C9C68-CE3E-4F70-847B-E28764A743AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{022C9C68-CE3E-4F70-847B-E28764A743AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{022C9C68-CE3E-4F70-847B-E28764A743AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{022C9C68-CE3E-4F70-847B-E28764A743AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AjedrezContext.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AjedrezContextStoreContainer">
+    <EntitySet Name="FichaDBSet" EntityType="AjedrezContext.Store.FichaDBSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TipoFichaDBSet" EntityType="AjedrezContext.Store.TipoFichaDBSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="TipoFichaDBFichaDB" Association="AjedrezContext.Store.TipoFichaDBFichaDB">
+      <End Role="TipoFichaDB" EntitySet="TipoFichaDBSet" />
+      <End Role="FichaDB" EntitySet="FichaDBSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="FichaDBSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="X" Type="int" Nullable="false" />
+    <Property Name="Y" Type="int" Nullable="false" />
+    <Property Name="TipoFichaDBId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoFichaDBSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <Association Name="TipoFichaDBFichaDB">
+    <End Role="TipoFichaDB" Type="AjedrezContext.Store.TipoFichaDBSet" Multiplicity="1" />
+    <End Role="FichaDB" Type="AjedrezContext.Store.FichaDBSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoFichaDB">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FichaDB">
+        <PropertyRef Name="TipoFichaDBId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="AjedrezContext" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="AjedrezContextContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FichaDBSet" EntityType="AjedrezContext.FichaDB" />
+          <EntitySet Name="TipoFichaDBSet" EntityType="AjedrezContext.TipoFichaDB" />
+          <AssociationSet Name="TipoFichaDBFichaDB" Association="AjedrezContext.TipoFichaDBFichaDB">
+            <End Role="TipoFichaDB" EntitySet="TipoFichaDBSet" />
+            <End Role="FichaDB" EntitySet="FichaDBSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="FichaDB">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="X" Type="Int32" Nullable="false" />
+          <Property Name="Y" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TipoFichaDB" Relationship="AjedrezContext.TipoFichaDBFichaDB" FromRole="FichaDB" ToRole="TipoFichaDB" />
+          <Property Name="TipoFichaDBId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoFichaDB">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="20" />
+          <NavigationProperty Name="FichaDB" Relationship="AjedrezContext.TipoFichaDBFichaDB" FromRole="TipoFichaDB" ToRole="FichaDB" />
+        </EntityType>
+        <Association Name="TipoFichaDBFichaDB">
+          <End Type="AjedrezContext.TipoFichaDB" Role="TipoFichaDB" Multiplicity="1" />
+          <End Type="AjedrezContext.FichaDB" Role="FichaDB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoFichaDB">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FichaDB">
+              <PropertyRef Name="TipoFichaDBId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AjedrezContextStoreContainer" CdmEntityContainer="AjedrezContextContainer">
+    <EntitySetMapping Name="FichaDBSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AjedrezContext.FichaDB)">
+        <MappingFragment StoreEntitySet="FichaDBSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="TipoFichaDBId" ColumnName="TipoFichaDBId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoFichaDBSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AjedrezContext.TipoFichaDB)">
+        <MappingFragment StoreEntitySet="TipoFichaDBSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
