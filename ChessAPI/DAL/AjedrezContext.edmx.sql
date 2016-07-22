@@ -3,8 +3,10 @@
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
 -- Date Created: 07/21/2016 22:10:16
--- Generated from EDMX file: D:\KEJ\Clientes\Desarrollo\Propio\PruebasTecnicas\Banlinea\ChessAPI\DAL\AjedrezContext.edmx
+-- Generated from EDMX file: D:\Banlinea\ChessAPI\DAL\AjedrezContext.edmx
 -- --------------------------------------------------
+USE [master]
+GO
 
 SET QUOTED_IDENTIFIER OFF;
 GO
@@ -85,6 +87,18 @@ GO
 CREATE INDEX [IX_FK_TipoFichaDBFichaDB]
 ON [dbo].[FichaDBSet]
     ([TipoFichaDBId]);
+GO
+
+INSERT INTO [dbo].[TipoFichaDBSet]
+           ([Id]
+           ,[Nombre])
+     VALUES
+           (1, 'REY'),
+		   (2, 'REINA'),
+		   (3, 'TORRE'),
+		   (4, 'CABALLO'),
+		   (5, 'ALFIL'),
+		   (6, 'PEON')
 GO
 
 -- --------------------------------------------------
